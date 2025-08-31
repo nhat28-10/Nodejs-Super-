@@ -1,13 +1,14 @@
-// Đây là module có sẵn dùng để tạo server node.js 
-const http = require('http')
+const express = require('express')
+const app = express()
+const port = 4000
 
-const PORT = 4000;
-
-const server = http.createServer((req,res) => {
-    res.setHeader('Content-Type', 'application/json')
-    res.end(`{"message": "Hello World"}`) //response.end là trả về cái gì đấy
+app.get('/', (req,res) => {
+    res.send('Hello World')
 })
 
-server.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`)
+app.get('/ToilaNhat', (req,res) => {
+    res.send('ToilaNhatdeptrai1')
+})
+app.listen(port,() => {
+    console.log(`Example app listening on port ${port}`)
 })
